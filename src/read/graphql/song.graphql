@@ -1,0 +1,11 @@
+type Query {
+	readSong: [Song!]!
+}
+
+type Song {
+	name: String!
+	genre: String!
+	runningTime: Int!
+	musician: [Musician!]!
+	album: Album!
+}

@@ -1,0 +1,8 @@
+type Query {
+	readMusician: [Musician!]!
+}
+
+type Musician {
+	name: String!
+	company: String!
+}

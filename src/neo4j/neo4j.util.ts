@@ -4,7 +4,8 @@ import { Neo4jConfig } from "src/neo4j-config.interface";
 export const createDriver = async (config: Neo4jConfig) => {
 	const driver: Driver = neo4j.driver(
 		`${config.scheme}://${config.host}`,
-		neo4j.auth.basic(config.username, config.password)
+		neo4j.auth.basic(config.username, config.password),
+		{ disableLosslessIntegers: true }
 	);
 
 	await driver.verifyConnectivity();

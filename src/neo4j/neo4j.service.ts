@@ -32,7 +32,7 @@ export class Neo4jService {
 
 	read(
 		cypher: string,
-		params: Record<string, any>,
+		params?: Record<string, any>,
 		database?: string
 	): Result {
 		const session = this.getReadSession(database);
@@ -40,7 +40,7 @@ export class Neo4jService {
 	}
 	write(
 		cypher: string,
-		params: Record<string, any>,
+		params?: Record<string, any>,
 		database?: string
 	): Result {
 		const session = this.getWriteSession(database);

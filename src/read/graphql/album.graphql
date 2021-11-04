@@ -1,0 +1,10 @@
+type Query {
+	readAlbum: [Album!]!
+}
+
+type Album {
+	name: String!
+	releaseDate: String!
+	song: [Song!]!
+	musician: [Musician!]!
+}
