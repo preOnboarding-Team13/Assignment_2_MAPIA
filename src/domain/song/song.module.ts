@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Neo4jModule } from 'src/neo4j/neo4j.module';
-import { Neo4jService } from 'src/neo4j/neo4j.service';
 import { SongController } from './song.controller';
 import { SongService } from './song.service';
 
