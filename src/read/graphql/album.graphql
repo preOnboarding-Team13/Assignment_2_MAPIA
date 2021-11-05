@@ -3,6 +3,7 @@ type Query {
 }
 
 type Album {
+	id: String!
 	name: String!
 	releaseDate: String!
 	song: [Song!]!

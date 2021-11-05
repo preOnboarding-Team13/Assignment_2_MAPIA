@@ -3,9 +3,10 @@ type Query {
 }
 
 type Song {
+	id: String!
 	name: String!
 	genre: String!
 	runningTime: Int!
 	musician: [Musician!]!
-	album: Album!
+	album: [Album!]!
 }

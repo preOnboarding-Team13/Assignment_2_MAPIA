@@ -3,6 +3,9 @@ type Query {
 }
 
 type Musician {
+	id: String!
 	name: String!
 	company: String!
+	album: [Album!]!
+	song: [Song!]!
 }
