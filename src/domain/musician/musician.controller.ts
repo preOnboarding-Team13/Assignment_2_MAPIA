@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Param, Post } from "@nestjs/common";
 import { MusicianService } from "./musician.service";
 import { RequestMusician } from "./dto/RequestMusician.dto";
 import { SuccessCode } from "src/global/common/successCode";
@@ -14,5 +14,17 @@ export class MusicianController {
 			SuccessCode.createMusician(),
 			await this.musicianService.createOne(data)
 		);
+	}
+	@Delete(":musicianId")
+	async deleteMSong(@Param("musicianId") musicianId: string) {
+		console.log("musicianId", musicianId);
+		const request = await this.musicianService.deleteOne(musicianId);
+		if (request) {
+			console.log("삭제 함");
+		} else {
+			console.log("해당 id 가 없음");
+		}
+		if (request) return request;
+		return 1;
 	}
 }

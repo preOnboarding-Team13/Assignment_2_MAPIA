@@ -34,4 +34,15 @@ export class MusicianRepository {
 				return result.records[0]?.get("m");
 			});
 	}
+
+	deleteOne(musicianId: string) {
+		return this.neo4jService
+			.write(
+				`MATCH (m:MUSICIAN {id: '${musicianId}'})
+				DETACH DELETE m return m`
+			)
+			.then((result) => {
+				return result.records[0]?.get("m");
+			});
+	}
 }

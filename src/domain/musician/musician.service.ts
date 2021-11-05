@@ -8,4 +8,7 @@ export class MusicianService {
 	createOne(data: RequestMusician) {
 		return this.musicianRepository.createOne(data);
 	}
+	deleteOne(musicianId: string) {
+		return this.musicianRepository.deleteOne(musicianId);
+	}
 }
