@@ -11,9 +11,8 @@ export class SongRepository {
 				`create(s:SONG {name: '${body.name}', runningTime: toInteger(${body.runningTime})}) return s`,
 				{}
 			)
-			.then((records) => {
-				const data = records[0].get("s").properties;
-				return data;
+			.then((result) => {
+				return result.records[0].get("s").properties;
 			});
 		return result;
 	}
