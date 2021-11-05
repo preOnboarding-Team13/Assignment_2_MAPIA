@@ -50,6 +50,7 @@ $ npm start
 
 4. 정해진 API에 접근하여 서비스를 이용합니다.
 
+<br/>
 
 
 ## 📝 과제 요구사항
@@ -186,13 +187,13 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 <br/>
 
-## 🕸 DB 모델링
+## 🧬 DB 모델링
 
 ![GraphDB](https://user-images.githubusercontent.com/60311404/140509284-2a97df44-2504-4100-91ae-515df047e9b0.png)
 
 <br/>
 
-## 구현 기능
+## 🔗 구현 기능
 
 ### 1) Check List
 
@@ -262,11 +263,46 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 <br/>
 
-## Postman 주소
+## 🐾 API
 
-[Postman](https://documenter.getpostman.com/view/15410333/UVC2G8wv)
+[Postman 주소-링크](https://documenter.getpostman.com/view/15410333/UVC2G8wv)
 
+<br/>
+
+## 🐾 API Test 방법
+
+1. 위의 Postman 주소 링크를 클릭하여 Postman으로 들어갑니다.
+2. 서버 주소가 알맞은지 확인합니다.
+
+![image](https://user-images.githubusercontent.com/41619081/140549043-f899abb8-5521-4111-b56c-4ecffc7b8e76.png)
+
+<br/>
+3. Create API를 이용하여 각각의 곡, 앨범, 뮤지션을 생성하여 id값을 얻습니다.
+
+![image](https://user-images.githubusercontent.com/41619081/140548876-82725eda-2a69-466d-af15-dec1acfd5952.png)
+
+<br/>
+4. 각각의 얻은 id값을 이용하여 앨범-곡, 뮤지션-곡을 **연결** 또는 **연결해제** 합니다.
+
+![image](https://user-images.githubusercontent.com/41619081/140549264-0c1af0e2-2888-4a01-98c0-c71d0ed453ff.png)
+
+<br/>
+5. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션에 대한 원하는 정보를 하나 또는 전부 가져올 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/41619081/140551126-bb439cd6-b61c-4387-b155-b2096a83d997.png)
+![image](https://user-images.githubusercontent.com/41619081/140551371-c142572d-64b6-4f44-8e6f-b79f3b3e2d26.png)
+
+
+<br/>
 
 
 ## TIL 블로그 주소
 
+- 김바다 : 
+- 김효민 :
+- 원동균 :
+- 이나영 :
+- 장희진 : 
+- 조재복 : 
+
+<br/>
