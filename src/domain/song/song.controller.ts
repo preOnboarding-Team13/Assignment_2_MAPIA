@@ -4,7 +4,7 @@ import { SuccessResponse } from "src/global/common/SuccessResponse";
 import { CreateDto } from "./dto/create.dto";
 import { SongService } from "./song.service";
 
-@Controller("song")
+@Controller("songs")
 export class SongController {
 	constructor(private songService: SongService) {}
 

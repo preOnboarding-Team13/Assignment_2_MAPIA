@@ -4,7 +4,7 @@ import { AlbumService } from "./album.service";
 import { SuccessResponse } from "src/global/common/SuccessResponse";
 import { SuccessCode } from "src/global/common/SuccessCode";
 
-@Controller("album")
+@Controller("albums")
 export class AlbumController {
 	constructor(private albumService: AlbumService) {}
 

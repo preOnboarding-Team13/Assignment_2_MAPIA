@@ -13,11 +13,11 @@ export class RelationService {
 		return this.relationRepository.createASong(body);
 	}
 
-	deleteMSong(body) {
-		return this.relationRepository.deleteMSong(body);
+	deleteMSong(musicianId, songId) {
+		return this.relationRepository.deleteMSong(musicianId, songId);
 	}
 
-	deleteASong(body) {
-		return this.relationRepository.deleteASong(body);
+	deleteASong(albumId, songId) {
+		return this.relationRepository.deleteASong(albumId, songId);
 	}
 }

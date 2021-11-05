@@ -4,7 +4,7 @@ import { RequestMusician } from "./dto/RequestMusician.dto";
 import { SuccessCode } from "src/global/common/SuccessCode";
 import { SuccessResponse } from "src/global/common/SuccessResponse";
 
-@Controller("musician")
+@Controller("musicians")
 export class MusicianController {
 	constructor(private musicianService: MusicianService) {}
 
