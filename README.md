@@ -22,7 +22,7 @@
 
 ## 🌎 배포
 
-주소 :
+주소 : http://52.14.26.207:3000
 
 <br/>
 
@@ -71,7 +71,24 @@
 
 ## 📂 폴더 구조
 
-**
+4개의 domain을 생성했습니다.
+
+- album
+- musician
+- song
+- relation 
+
+각 domain은 아래와 같이 구성되어 있습니다.
+
+- module
+- controller
+- service
+- repository
+- exception folder (for Custom Exception)
+
+read 폴더: GraphQL 관련 폴더
+
+neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 ```
 .
@@ -151,6 +168,8 @@
 
 ## 구현 기능
 
+### 1) Check List
+
 -   **화면별 Read API 요구사항 (GraphQL)**
 
     `곡` 페이지
@@ -173,33 +192,47 @@
 
 - **Create, Update, Delete API 요구사항 (RESTful API)**
 
-   ✅ `곡` 생성 API
+  ✅ `곡` 생성 API
 
-   ✅ `앨범` 생성 API
+  ✅ `앨범` 생성 API
 
-   ✅ `뮤지션` 생성 API
+  ✅ `뮤지션` 생성 API
 
-   ✅ `뮤지션` - `곡` 연결
+  ✅ `뮤지션` - `곡` 연결
 
-   ✅ `뮤지션` - `곡` 연결해제 API
+  ✅ `뮤지션` - `곡` 연결해제 API
 
-   ✅ `곡` - `앨범` 연결
+  ✅ `곡` - `앨범` 연결
 
-   ✅ `곡` - `앨범`연결해제 API
+  ✅ `곡` - `앨범`연결해제 API
 
-   ✅ `뮤지션` - `앨범` 연결/연결해제 API 는 필요하지 않습니다. (구현 X)
+  ✅ `뮤지션` - `앨범` 연결/연결해제 API 는 필요하지 않습니다. (구현 X)
 
   - `뮤지션` - `곡` 연결과 `곡` - `앨범` 연결이 되어있으면
     GraphDB (neo4j) 에서 `뮤지션` - [*] - `앨범` 연결 여부를 뽑을 수 있습니다. **이 특성을 Read API에서 활용**해주세요.
 
--   **TEST** 
-    
-    [ ] Unit Test 
-    
-    [ ] API Test
-    <br/>
+- **Test**
 
-## Unit Test
+  [ ] Unit Test 
+
+  [ ] API Test
+
+### 2) 상세 내용
+
+#### Neo4j aruaDB 이용
+
+개발시에 팀원들이 모두 같은 DB를 이용하고, 배포시에도 편리하도록 local DBMS가 아닌 클라우드 형태의 Neo4j aruaDB 를 이용했습니다. 
+
+![Neo4j_ARUA](.\images\Neo4j_ARUA.png)
+
+#### GraphQL 관련 내용...
+
+
+
+#### Test 관련 내용....
+
+
+
 
 <br/>
 
