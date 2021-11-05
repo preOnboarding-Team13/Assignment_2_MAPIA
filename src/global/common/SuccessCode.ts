@@ -27,6 +27,18 @@ export class SuccessCode {
 		return new SuccessCode(201, "앨범이 등록되었습니다.");
 	}
 
+	public static deleteSong() {
+		return new SuccessCode(200, "곡이 삭제되었습니다.");
+	}
+
+	public static deleteMusician() {
+		return new SuccessCode(200, "뮤지션이 삭제되었습니다.");
+	}
+
+	public static deleteAlbum() {
+		return new SuccessCode(200, "앨범이 삭제되었습니다.");
+	}
+
 	public static createRelationship() {
 		return new SuccessCode(200, "연결되었습니다.");
 	}
