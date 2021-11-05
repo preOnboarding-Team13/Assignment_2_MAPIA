@@ -46,4 +46,8 @@ export class Neo4jService {
 		const session = this.getWriteSession(database);
 		return session.run(cypher, params);
 	}
+
+	onApplicationShutdown() {
+		return this.driver.close();
+	}
 }
