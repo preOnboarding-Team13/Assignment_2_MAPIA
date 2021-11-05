@@ -83,4 +83,31 @@
 
 ## ⚒ 사용 기술
 
--  Backend : <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/></a>
+-  Backend : <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/></a> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/></a>
+-  DataBase : <img src="https://img.shields.io/badge/Neo4j-008CC1?style=flat&logo=Neo4j&logoColor=white"/></a> <img src="https://img.shields.io/badge/GraphQL-E10098?style=flat&logo=GraphQL&logoColor=white"/></a>
+-  Collaboration : <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=Git&logoColor=white"/></a> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=Postman&logoColor=white"/></a>
+
+
+<br/>
+
+## 📂 폴더 구조
+
+
+<br/>
+
+## 🕸 DB 모델링
+![제목을 입력해주세요_-006 (1)](https://user-images.githubusercontent.com/41619081/140498881-78981863-b0d1-4b55-9cbb-85a24abdb617.png)
+
+
+<br/>
+
+## 구현 기능
+
+<br/>
+
+## Unit Test
+
+<br/>
+
+## Postman 주소
+
