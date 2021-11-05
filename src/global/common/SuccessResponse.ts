@@ -1,5 +1,5 @@
-import { CommonResponse } from "./CommonResponse";
-import { SuccessCode } from "./SuccessCode";
+import { CommonResponse } from "./commonResponse";
+import { SuccessCode } from "./successCode";
 
 export class SuccessResponse extends CommonResponse {
 	private data: any;

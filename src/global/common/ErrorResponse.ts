@@ -1,5 +1,5 @@
-import { CommonResponse } from "./CommonResponse";
-import { ErrorCode } from "./ErrorCode";
+import { CommonResponse } from "./commonResponse";
+import { ErrorCode } from "./errorCode";
 
 export class ErrorResponse extends CommonResponse {
 	constructor(errorCode: ErrorCode) {

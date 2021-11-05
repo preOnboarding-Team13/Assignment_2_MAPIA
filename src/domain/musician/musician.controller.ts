@@ -1,8 +1,8 @@
 import { Body, Controller, Post } from "@nestjs/common";
 import { MusicianService } from "./musician.service";
 import { RequestMusician } from "./dto/RequestMusician.dto";
-import { SuccessCode } from "src/global/common/SuccessCode";
-import { SuccessResponse } from "src/global/common/SuccessResponse";
+import { SuccessCode } from "src/global/common/successCode";
+import { SuccessResponse } from "src/global/common/successResponse";
 
 @Controller("musicians")
 export class MusicianController {

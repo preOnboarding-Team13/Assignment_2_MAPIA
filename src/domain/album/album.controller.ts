@@ -1,8 +1,8 @@
 import { Controller, Body, Post } from "@nestjs/common";
 import { CreateDto } from "./dto/create.dto";
 import { AlbumService } from "./album.service";
-import { SuccessResponse } from "src/global/common/SuccessResponse";
-import { SuccessCode } from "src/global/common/SuccessCode";
+import { SuccessResponse } from "src/global/common/successResponse";
+import { SuccessCode } from "src/global/common/successCode";
 
 @Controller("albums")
 export class AlbumController {

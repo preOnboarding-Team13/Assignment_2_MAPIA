@@ -1,8 +1,8 @@
 import { Controller, Post, Body, Delete, Param } from "@nestjs/common";
 import { RelationService } from "./relation.service";
 import { MusicianSongDto } from "./dto/musicianSong.dto";
-import { SuccessResponse } from "src/global/common/SuccessResponse";
-import { SuccessCode } from "src/global/common/SuccessCode";
+import { SuccessResponse } from "src/global/common/successResponse";
+import { SuccessCode } from "src/global/common/successCode";
 import { AlbumSongDto } from "./dto/albumSong.dto";
 
 @Controller("relations")
