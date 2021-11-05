@@ -253,6 +253,14 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 ![Neo4j_ARUA](https://user-images.githubusercontent.com/43634786/140530811-9877e852-771d-49e0-a672-1f69ec28ba4e.png)
 
+#### 각 Node에 Id 속성 추가
+
+이름이 같은 뮤지션, 이름이 같은 앨범 등이 존재할 것 같아 
+
+Node 생성시에 apoc.create.uuid() 로 id값을 생성해서 넣어주었습니다.
+
+그래서 Node를 id로 식별하도록 했습니다.
+
 #### GraphQL 관련 
 
 
@@ -260,18 +268,18 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 graphql의 `autoSchemaFile: true` 옵션을 사용하여 자동으로 graphql schema file을 만드는 `code first 방식`이 아닌, 사용자가 직접 작성하는 `schema first 방식`을 사용하였습니다.
 `schema first 방식`은 사용자가 직접 graphql schema file을 작성해야 해서 반드시 SDL(Schema Definition Language)과 Resolver가 정확히 일치해야 하고, 코드가 실행되어야 오류를 알 수 있다는 단점이 있습니다.     
-   
+
 하지만 graphql schema를 먼저 정의하고 해당 정의에 맞게 코드를 작성하는 방식이라 코드가 전부 작성된 이후 graphql schema file이 정의되는 `code first 방식`에 비해 기술에 익숙하지 않은 사람이 이해하기 쉬우며 schema model을 만들면서 팀원간 의사소통의 수단으로 삼을 수 있다는 장점이 있습니다.      
 
 graphql 기술을 다뤄본 사람과 다뤄보지 못한 사람이 섞여서 한 팀을 이룬 경우 최고의 방법이라고 생각하여 `schema firt 방식`을 사용하였습니다.    
 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/52685665/140557963-fa46aa62-b1b0-4739-bedd-ecd156e7aef1.png"></p>
-  
+
 <br/>
 <br/>
-  
-  
+
+
 ***2. Data loader***
 
 graphql도 Rest API처럼 N + 1 문제를 가지고 있습니다. Musician과 연관된 Song을 가져오기 위해 다음과 같은 ResolverField를 사용해보겠습니다.  
@@ -282,7 +290,7 @@ graphql도 Rest API처럼 N + 1 문제를 가지고 있습니다. Musician과 �
 song(@Parent() musician: Musician) {
     return this.readService.readHaveSong(musician);
 }
-``` 
+```
 <br/>
 <br/>
 
@@ -302,7 +310,7 @@ async readHaveSong(musician) {
 
     return haveSong;
 }
-``` 
+```
 
 <br/>
 
