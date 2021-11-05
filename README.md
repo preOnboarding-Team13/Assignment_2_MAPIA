@@ -108,10 +108,13 @@ $ npm start
 각 domain은 아래와 같이 구성되어 있습니다.
 
 - module
-- controller
-- service
-- repository
+- controller (request의 유효성 검사)
+- service (도메인 핵심 비즈니스 로직)
+- repository (DB 접근과 쿼리에 대한 코드)
 - exception folder (for Custom Exception)
+
+비즈니스 로직에서 DB에 대한 종속성을 최대한 제거하기 하기 위해서 Repository 계층을 만들었습니다.
+Service는 Repository가 어떤 DB를 사용하는지 알지 못하여 DB가 바뀌어도 최대한 Service 코드에 영향이 가지 않도록 하기 위함입니다.
 
 read 폴더: GraphQL 관련 폴더
 
