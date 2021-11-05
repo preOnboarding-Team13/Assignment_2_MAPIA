@@ -1,10 +1,19 @@
-import { Controller, Post, Body, Delete, Param } from "@nestjs/common";
+import {
+	Controller,
+	Post,
+	Body,
+	Delete,
+	Param,
+	ClassSerializerInterceptor,
+	UseInterceptors
+} from "@nestjs/common";
 import { RelationService } from "./relation.service";
 import { ConnectMusicianToSong } from "./dto/ConnectMusicianToSong.dto";
 import { SuccessResponse } from "src/global/common/successResponse";
 import { SuccessCode } from "src/global/common/successCode";
 import { ConnectAlbumToSong } from "./dto/ConnectAlbumToSong.dto";
 
+@UseInterceptors(ClassSerializerInterceptor)
 @Controller("relations")
 export class RelationController {
 	constructor(private relationService: RelationService) {}
