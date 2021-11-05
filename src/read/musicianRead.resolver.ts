@@ -1,4 +1,4 @@
-import { Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
+import { Args, Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
 import { Album, Musician, Song } from "src/read/graphql/graphql.schema";
 import { ReadService } from "./read.service";
 
@@ -7,8 +7,13 @@ export class MusicianRead {
 	constructor(private readonly readService: ReadService) {}
 
 	@Query(() => [Musician])
-	async readMusician() {
-		return this.readService.readMusician();
+	async readAllMusician() {
+		return this.readService.readAllMusician();
+	}
+
+	@Query(() => [Musician])
+	async readMusician(@Args("id") id: string) {
+		return this.readService.readMusician(id);
 	}
 
 	@ResolveField(() => [Song])

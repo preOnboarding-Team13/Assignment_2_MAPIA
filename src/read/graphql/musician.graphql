@@ -1,5 +1,6 @@
 type Query {
-	readMusician: [Musician!]!
+	readAllMusician: [Musician!]!
+	readMusician(id: String!): [Musician!]!
 }
 
 type Musician {

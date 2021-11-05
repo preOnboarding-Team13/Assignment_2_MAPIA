@@ -16,10 +16,19 @@ export class ReadService {
 
 		return readSong;
 	}
-
-	async readMusician() {
-		const readMusician = await this.neo4jService
+	async readAllMusician() {
+		const readAllMusician = await this.neo4jService
 			.read(`MATCH (m:MUSICIAN) RETURN m`)
+			.then((res) =>
+				res.records.map((row) => new Musician(row.get("m")).toJson())
+			);
+
+		return readAllMusician;
+	}
+
+	async readMusician(id: string) {
+		const readMusician = await this.neo4jService
+			.read(`MATCH (m:MUSICIAN) WHERE m.id='${id}' RETURN m`)
 			.then((res) =>
 				res.records.map((row) => new Musician(row.get("m")).toJson())
 			);
