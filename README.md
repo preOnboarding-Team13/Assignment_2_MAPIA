@@ -242,9 +242,10 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 - **Test**
 
+  ✅ E2E Test
+  
   [ ] Unit Test 
 
-  [ ] API Test
 
 ### 2) 상세 내용
 
@@ -367,11 +368,13 @@ Property 'intercept' in type 'DataLoaderInterceptor' is not assignable to the sa
 ```
 
 
+#### End to end test
 
+각 도메인에 들어오는 Request의 유효성 검사를 위해 컨트롤러 유닛테스트를 해야하지만
+현재 NestJS 프로젝트에서는 컨트롤러에 들어오기 전에 pipe라는 미들웨어를 통해 유효성 검사를 하기때문에
+e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 작성했습니다.
 
-#### Test 관련 내용....
-
-
+[유효성 검사는 e2e 테스트를 통해서..](https://stackoverflow.com/questions/58843038/how-to-manually-test-input-validation-with-nestjs-and-class-validator)
 
 
 <br/>
