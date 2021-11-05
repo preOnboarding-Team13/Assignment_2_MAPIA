@@ -26,11 +26,11 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "^9.1.1",
     "@nestjs/platform-express": "^8.0.0",
-    "apollo-server-express": "^2.25.2",
+    "apollo-server-express": "^3.4.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "graphql": "^15.0.0",
-	"graphql-tools": "^8.2.0",
+    "graphql-tools": "^8.2.0",
     "neo4j-driver": "^4.3.5",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -74,8 +74,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
-	"moduleNameMapper": {
-		"^src/(.*)$": "<rootDir>/$1"
-	}
-}
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/$1"
+    }
+  }
 }
