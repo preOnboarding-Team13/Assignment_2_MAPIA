@@ -7,9 +7,9 @@ import { Song } from "./entity/song.entity";
 @Injectable()
 export class ReadService {
 	constructor(private readonly neo4jService: Neo4jService) {}
-	async readSong() {
+	async readAllSong() {
 		const readSong = await this.neo4jService
-			.read(`MATCH (s:SONG) RETURN s`)
+			.read(`MATCH (s:SONG) RETURN s`, {})
 			.then((res) =>
 				res.records.map((row) => new Song(row.get("s")).toJson())
 			);
@@ -17,9 +17,28 @@ export class ReadService {
 		return readSong;
 	}
 
-	async readMusician() {
-		const readMusician = await this.neo4jService
+	async readSong(id: string) {
+		const readSong = await this.neo4jService
+			.read(`MATCH (s:SONG) WHERE s.id='${id}' RETURN s`)
+			.then((res) =>
+				res.records.map((row) => new Song(row.get("s")).toJson())
+			);
+
+		return readSong;
+	}
+	async readAllMusician() {
+		const readAllMusician = await this.neo4jService
 			.read(`MATCH (m:MUSICIAN) RETURN m`)
+			.then((res) =>
+				res.records.map((row) => new Musician(row.get("m")).toJson())
+			);
+
+		return readAllMusician;
+	}
+
+	async readMusician(id: string) {
+		const readMusician = await this.neo4jService
+			.read(`MATCH (m:MUSICIAN) WHERE m.id='${id}' RETURN m`)
 			.then((res) =>
 				res.records.map((row) => new Musician(row.get("m")).toJson())
 			);
@@ -27,9 +46,18 @@ export class ReadService {
 		return readMusician;
 	}
 
-	async readAlbum() {
-		const readAlbum = await this.neo4jService
+	async readAllAlbum() {
+		const readAllAlbum = await this.neo4jService
 			.read(`MATCH (a:ALBUM) RETURN a`)
+			.then((res) =>
+				res.records.map((row) => new Album(row.get("a")).toJson())
+			);
+		return readAllAlbum;
+	}
+
+	async readAlbum(id: string) {
+		const readAlbum = await this.neo4jService
+			.read(`MATCH (a:ALBUM) WHERE a.id = '${id}' RETURN a`)
 			.then((res) =>
 				res.records.map((row) => new Album(row.get("a")).toJson())
 			);
