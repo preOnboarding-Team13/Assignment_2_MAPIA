@@ -239,6 +239,56 @@ describe("AppController (e2e)", () => {
 				});
 		});
 	});
+
+	describe("Delete Node API (DELETE)", () => {
+		it("/songs/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/songs/${uuid.SONG}`)
+				.expect(200);
+		});
+
+		it("/songs/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/songs/${uuid.SONG}`)
+				.expect(404)
+				.expect((res) => {
+					const message = getErrorMessages(res);
+					expect(message).toBe(error.NOT_FOUND_SONG);
+				});
+		});
+
+		it("/albums/:albumId", () => {
+			return request(app.getHttpServer())
+				.delete(`/albums/${uuid.ALBUM}`)
+				.expect(200);
+		});
+
+		it("/albums/:albumId", () => {
+			return request(app.getHttpServer())
+				.delete(`/albums/${uuid.ALBUM}`)
+				.expect(404)
+				.expect((res) => {
+					const message = getErrorMessages(res);
+					expect(message).toBe(error.NOT_FOUND_ALBUM);
+				});
+		});
+
+		it("/musicians/:musicianId", () => {
+			return request(app.getHttpServer())
+				.delete(`/musicians/${uuid.MUSICIAN}`)
+				.expect(200);
+		});
+
+		it("/musicians/:musicianId", () => {
+			return request(app.getHttpServer())
+				.delete(`/musicians/${uuid.MUSICIAN}`)
+				.expect(404)
+				.expect((res) => {
+					const message = getErrorMessages(res);
+					expect(message).toBe(error.NOT_FOUND_MUSICIAN);
+				});
+		});
+	});
 });
 
 function getErrorMessages(res) {
