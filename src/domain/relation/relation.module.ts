@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
+import { RelationService } from "./relation.service";
+import { RelationController } from "./relation.controller";
+import { RelationRepository } from "./relation.repository";
 import { ConfigModule } from "@nestjs/config";
 import { Neo4jModule } from "src/neo4j/neo4j.module";
-import { SongController } from "./song.controller";
-import { SongRepository } from "./song.repository";
-import { SongService } from "./song.service";
 
 @Module({
 	imports: [
@@ -15,7 +15,7 @@ import { SongService } from "./song.service";
 			password: process.env.NEO4J_PASSWORD
 		})
 	],
-	controllers: [SongController],
-	providers: [SongService, SongRepository]
+	providers: [RelationService, RelationRepository],
+	controllers: [RelationController]
 })
-export class SongModule {}
+export class RelationModule {}

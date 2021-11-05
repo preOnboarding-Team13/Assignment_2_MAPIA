@@ -6,6 +6,7 @@ import { ConfigModule } from "@nestjs/config";
 import { SongModule } from "./domain/song/song.module";
 import { AlbumModule } from "./domain/album/album.module";
 import { MusicianModule } from "./domain/musician/musician.module";
+import { RelationModule } from "./domain/relation/relation.module";
 
 @Module({
 	imports: [
@@ -18,7 +19,8 @@ import { MusicianModule } from "./domain/musician/musician.module";
 		}),
 		SongModule,
 		AlbumModule,
-		MusicianModule
+		MusicianModule,
+		RelationModule
 	],
 	controllers: [AppController],
 	providers: [AppService]
