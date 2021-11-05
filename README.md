@@ -9,14 +9,14 @@
 
 ## ☄️ 팀원 소개
 
-| 이름                                     | 담당 기능                                 |
-| ---------------------------------------- | ----------------------------------------- |
-| [김바다](https://github.com/sally0226)   | REST API 구현, Graphql API 구현           |
-| [김효민](https://github.com/luckyhyom)   | Neo4j 설정, REST API 구현, e2e 테스트구현 |
-| [원동균](https://github.com/WonDongGyun) | Graphql 설정, Graphql API 구현, Graphql unit 테스트구현|
-| [이나영](https://github.com/bokiri409)   | REST API 구현, Graphql API 구현           |
-| [장희진](https://github.com/heejin99)    | REST API 구현, Graphql API 구현           |
-| [조재복](https://github.com/ildang100)   | REST API 구현, e2e 테스트구현             |
+| 이름                                     | 담당 기능                                               |
+| ---------------------------------------- | ------------------------------------------------------- |
+| [김바다](https://github.com/sally0226)   | REST API 구현, Graphql API 구현                         |
+| [김효민](https://github.com/luckyhyom)   | Neo4j 설정, REST API 구현, e2e 테스트구현               |
+| [원동균](https://github.com/WonDongGyun) | Graphql 설정, Graphql API 구현, Graphql unit 테스트구현 |
+| [이나영](https://github.com/bokiri409)   | REST API 구현, Graphql API 구현                         |
+| [장희진](https://github.com/heejin99)    | REST API 구현, Graphql API 구현                         |
+| [조재복](https://github.com/ildang100)   | REST API 구현, e2e 테스트구현                           |
 
 <br/>
 
@@ -25,8 +25,6 @@
 주소 : http://52.14.26.207:3000
 
 <br/>
-
-
 
 ## 🛠 프로젝트 빌드 및 서버 실행 방법
 
@@ -51,7 +49,6 @@ $ npm start
 4. 정해진 API에 접근하여 서비스를 이용합니다.
 
 <br/>
-
 
 ## 📝 과제 요구사항
 
@@ -100,18 +97,21 @@ $ npm start
 
 4개의 domain을 생성했습니다.
 
-- album
-- musician
-- song
-- relation 
+-   album
+-   musician
+-   song
+-   relation
 
 각 domain은 아래와 같이 구성되어 있습니다.
 
-- module
-- controller
-- service
-- repository
-- exception folder (for Custom Exception)
+-   module
+-   controller
+-   service
+-   repository
+-   exception folder (for Custom Exception)
+
+비즈니스 로직에서 DB에 대한 종속성을 최대한 제거하기 하기 위해서 Repository 계층을 만들었습니다. <br/>
+Service는 Repository가 어떤 DB를 사용하는지 알지 못하여 DB가 바뀌어도 최대한 Service 코드에 영향이 가지 않도록 하기 위함입니다.
 
 read 폴더: GraphQL 관련 폴더
 
@@ -183,8 +183,6 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 └── README.md
 ```
 
-
-
 <br/>
 
 ## 🧬 DB 모델링
@@ -196,7 +194,6 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 ## 🔗 구현 기능
 
 ### 1) Check List
-
 
 ```bash
 -   **화면별 Read API 요구사항 (GraphQL)**
@@ -240,67 +237,63 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
     GraphDB (neo4j) 에서 `뮤지션` - [*] - `앨범` 연결 여부를 뽑을 수 있습니다. **이 특성을 Read API에서 활용**해주세요.
 ```
 
-- **Test**
+-   **Test**
 
-  ✅ E2E Test
-  
-  [ ] Unit Test 
+    ✅ E2E Test
 
+    [ ] Unit Test
 
 ### 2) 상세 내용
 
 #### Neo4j aruaDB 이용
 
-개발시에 팀원들이 모두 같은 DB를 이용하고, 배포시에도 편리하도록 local DBMS가 아닌 클라우드 형태의 Neo4j aruaDB 를 이용했습니다. 
+개발시에 팀원들이 모두 같은 DB를 이용하고, 배포시에도 편리하도록 local DBMS가 아닌 클라우드 형태의 Neo4j aruaDB 를 이용했습니다.
 
 ![Neo4j_ARUA](https://user-images.githubusercontent.com/43634786/140530811-9877e852-771d-49e0-a672-1f69ec28ba4e.png)
 
 #### 각 Node에 Id 속성 추가
 
-이름이 같은 뮤지션, 이름이 같은 앨범 등이 존재할 것 같아 
+이름이 같은 뮤지션, 이름이 같은 앨범 등이 존재할 것 같아
 
 Node 생성시에 apoc.create.uuid() 로 id값을 생성해서 넣어주었습니다.
 
 그래서 Node를 id로 식별하도록 했습니다.
 
-#### GraphQL 관련 
+#### GraphQL 관련
 
-
-***1. schema first 방식 사용***
+**_1. schema first 방식 사용_**
 
 graphql의 `autoSchemaFile: true` 옵션을 사용하여 자동으로 graphql schema file을 만드는 `code first 방식`이 아닌, 사용자가 직접 작성하는 `schema first 방식`을 사용하였습니다.
-`schema first 방식`은 사용자가 직접 graphql schema file을 작성해야 해서 반드시 SDL(Schema Definition Language)과 Resolver가 정확히 일치해야 하고, 코드가 실행되어야 오류를 알 수 있다는 단점이 있습니다.     
+`schema first 방식`은 사용자가 직접 graphql schema file을 작성해야 해서 반드시 SDL(Schema Definition Language)과 Resolver가 정확히 일치해야 하고, 코드가 실행되어야 오류를 알 수 있다는 단점이 있습니다.
 
-하지만 graphql schema를 먼저 정의하고 해당 정의에 맞게 코드를 작성하는 방식이라 코드가 전부 작성된 이후 graphql schema file이 정의되는 `code first 방식`에 비해 기술에 익숙하지 않은 사람이 이해하기 쉬우며 schema model을 만들면서 팀원간 의사소통의 수단으로 삼을 수 있다는 장점이 있습니다.      
+하지만 graphql schema를 먼저 정의하고 해당 정의에 맞게 코드를 작성하는 방식이라 코드가 전부 작성된 이후 graphql schema file이 정의되는 `code first 방식`에 비해 기술에 익숙하지 않은 사람이 이해하기 쉬우며 schema model을 만들면서 팀원간 의사소통의 수단으로 삼을 수 있다는 장점이 있습니다.
 
-graphql 기술을 다뤄본 사람과 다뤄보지 못한 사람이 섞여서 한 팀을 이룬 경우 최고의 방법이라고 생각하여 `schema firt 방식`을 사용하였습니다.    
-
+graphql 기술을 다뤄본 사람과 다뤄보지 못한 사람이 섞여서 한 팀을 이룬 경우 최고의 방법이라고 생각하여 `schema firt 방식`을 사용하였습니다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/52685665/140557963-fa46aa62-b1b0-4739-bedd-ecd156e7aef1.png"></p>
 
 <br/>
 <br/>
 
+**_2. Data loader_**
 
-***2. Data loader***
+graphql도 Rest API처럼 N + 1 문제를 가지고 있습니다. Musician과 연관된 Song을 가져오기 위해 다음과 같은 ResolverField를 사용해보겠습니다.
 
-graphql도 Rest API처럼 N + 1 문제를 가지고 있습니다. Musician과 연관된 Song을 가져오기 위해 다음과 같은 ResolverField를 사용해보겠습니다.  
-
-
-``` javascript
+```javascript
 @ResolveField(() => [Song])
 song(@Parent() musician: Musician) {
     return this.readService.readHaveSong(musician);
 }
 ```
-<br/>
-<br/>
-
-해당 ResolverField에서 다음과 같이 readHaveSong()을 사용하고 있는데, 만약 10개의 musician과 관련된 Song을 찾는다고 하면 11번의 쿼리가 수행됩니다.  
 
 <br/>
+<br/>
 
-``` javascript
+해당 ResolverField에서 다음과 같이 readHaveSong()을 사용하고 있는데, 만약 10개의 musician과 관련된 Song을 찾는다고 하면 11번의 쿼리가 수행됩니다.
+
+<br/>
+
+```javascript
 async readHaveSong(musician) {
     const haveSong = await this.neo4jService
         .read(
@@ -316,7 +309,7 @@ async readHaveSong(musician) {
 
 <br/>
 
-graphql 에서는 이러한 N + 1문제를 해결하기 위해 data-loader를 지원합니다. 다음과 같이 여러개의 musician id값을 모아서 IN query를 발생시킴으로서 기존의 11번 발생하는 쿼리를 1번의 쿼리만을 사용해 문제를 해결할 수 있습니다.   
+graphql 에서는 이러한 N + 1문제를 해결하기 위해 data-loader를 지원합니다. 다음과 같이 여러개의 musician id값을 모아서 IN query를 발생시킴으로서 기존의 11번 발생하는 쿼리를 1번의 쿼리만을 사용해 문제를 해결할 수 있습니다.
 
 <br/>
 
@@ -353,20 +346,19 @@ export class HaveSongDataLoader {
 	}
 }
 ```
+
 <br/>
 <br/>
 
-다만 아쉽게도 현재 `Nest Js v8`과 `nestjs-dataloader: 7.0.1` 가 제대로 호환되지 않아 Rxjs가 충돌하며 발생하는 버그가 있습니다. 이러한 버그가 있어서 결국에는 data loader를 적용시키지 못했습니다. 해당 오류가 해결되면 data loader를 적용시킬 수 있을 것 같습니다.   
-
+다만 아쉽게도 현재 `Nest Js v8`과 `nestjs-dataloader: 7.0.1` 가 제대로 호환되지 않아 Rxjs가 충돌하며 발생하는 버그가 있습니다. 이러한 버그가 있어서 결국에는 data loader를 적용시키지 못했습니다. 해당 오류가 해결되면 data loader를 적용시킬 수 있을 것 같습니다.
 
 ```
-Property 'intercept' in type 'DataLoaderInterceptor' is not assignable to the same property in base type 'NestInterceptor<any, any>'.    
+Property 'intercept' in type 'DataLoaderInterceptor' is not assignable to the same property in base type 'NestInterceptor<any, any>'.
   Type '(context: ExecutionContext, next: CallHandler<any>) => Observable<any>' is not assignable to type '(context: ExecutionContext, next: CallHandler<any>) => Observable<any> | Promise<Observable<any>>'.
     Type 'Observable<any>' is not assignable to type 'Observable<any> | Promise<Observable<any>>'.
       Type 'import("C:/Users/mm/Desktop/Study/sparta/99/Assignment_2_MAPIA/node_modules/neo4j-driver/node_modules/rxjs/internal/Observable").Observable<any>' is not assignable to type 'import("C:/Users/mm/Desktop/Study/sparta/99/Assignment_2_MAPIA/node_modules/rxjs/dist/types/internal/Observable").Observable<any>'.
         The types of 'operator.call' are incompatible between these types.
 ```
-
 
 #### End to end test
 
@@ -375,7 +367,6 @@ Property 'intercept' in type 'DataLoaderInterceptor' is not assignable to the sa
 e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 작성했습니다.
 
 [유효성 검사는 e2e 테스트를 통해서..](https://stackoverflow.com/questions/58843038/how-to-manually-test-input-validation-with-nestjs-and-class-validator)
-
 
 <br/>
 
@@ -388,6 +379,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 ## 🐾 API Test 방법
 
 ### 1. 위의 Postman 주소 링크를 클릭하여 Postman으로 들어갑니다.
+
 ### 2. 서버 주소가 알맞은지 확인합니다.
 
 ![image](https://user-images.githubusercontent.com/41619081/140549043-f899abb8-5521-4111-b56c-4ecffc7b8e76.png)
@@ -406,7 +398,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 
 <br/>
 
-### 5. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션에 대한 원하는 정보를 하나 또는 전부 가져올 수 있습니다. 
+### 5. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션에 대한 원하는 정보를 하나 또는 전부 가져올 수 있습니다.
 
 ![image](https://user-images.githubusercontent.com/41619081/140551126-bb439cd6-b61c-4387-b155-b2096a83d997.png)
 ![image](https://user-images.githubusercontent.com/41619081/140551371-c142572d-64b6-4f44-8e6f-b79f3b3e2d26.png)
@@ -418,18 +410,15 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 ![image](https://user-images.githubusercontent.com/41619081/140564965-0b5710a4-f4bc-4729-bd5c-29591f848bd1.png)
 ![image](https://user-images.githubusercontent.com/41619081/140565346-85acfda6-20d4-448c-a410-4705abd32c1d.png)
 
-
-
 <br/>
-
 
 ## TIL 블로그 주소
 
-- 김바다 : 
-- 김효민 :
-- 원동균 :
-- 이나영 :
-- 장희진 : 
-- 조재복 : 
+-   김바다 :
+-   김효민 :
+-   원동균 :
+-   이나영 :
+-   장희진 :
+-   조재복 :
 
 <br/>
