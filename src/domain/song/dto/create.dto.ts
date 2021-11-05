@@ -1,12 +1,12 @@
 import { IsInt, IsString } from "class-validator";
 
 export class CreateDto{
-    @IsString()
-    readonly name: string;
+	@IsString()
+	readonly name: string;
 
-    @IsString()
-    readonly genre: string;
+	@IsString()
+	readonly genre: string;
 
-    @IsInt()
-    readonly runningTime: number;    
+	@IsInt()
+	readonly runningTime: number;
 }
