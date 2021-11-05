@@ -46,9 +46,18 @@ export class ReadService {
 		return readMusician;
 	}
 
-	async readAlbum() {
-		const readAlbum = await this.neo4jService
+	async readAllAlbum() {
+		const readAllAlbum = await this.neo4jService
 			.read(`MATCH (a:ALBUM) RETURN a`)
+			.then((res) =>
+				res.records.map((row) => new Album(row.get("a")).toJson())
+			);
+		return readAllAlbum;
+	}
+
+	async readAlbum(id: string) {
+		const readAlbum = await this.neo4jService
+			.read(`MATCH (a:ALBUM) WHERE a.id = '${id}' RETURN a`)
 			.then((res) =>
 				res.records.map((row) => new Album(row.get("a")).toJson())
 			);

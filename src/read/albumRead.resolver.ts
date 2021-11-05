@@ -7,8 +7,13 @@ export class AlbumRead {
 	constructor(private readonly readService: ReadService) {}
 
 	@Query(() => [Album])
-	async readAlbum() {
-		return this.readService.readAlbum();
+	async readAllAlbum() {
+		return this.readService.readAllAlbum();
+	}
+
+	@Query(() => [Album])
+	async readAlbum(@Args("id") id: string) {
+		return this.readService.readAlbum(id);
 	}
 
 	@ResolveField(() => [Song])
