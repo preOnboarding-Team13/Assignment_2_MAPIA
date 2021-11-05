@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
+import { RequestSong } from "./dto/RequestSong.dto";
 import { SongRepository } from "./song.repository";
 
 @Injectable()
 export class SongService {
 	constructor(private songRepository: SongRepository) {}
 
-	createOne(body) {
-		return this.songRepository.createOne(body);
+	createOne(data: RequestSong) {
+		return this.songRepository.createOne(data);
 	}
 }

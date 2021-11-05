@@ -1,11 +1,11 @@
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class RequestMusician {
+export class ConnectAlbumToSong {
 	@IsString()
 	@IsNotEmpty()
-	readonly name: string;
+	readonly albumId: string;
 
 	@IsString()
 	@IsNotEmpty()
-	readonly company: string;
+	readonly songId: string;
 }

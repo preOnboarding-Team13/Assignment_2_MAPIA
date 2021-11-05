@@ -1,15 +1,21 @@
 import { Injectable } from "@nestjs/common";
 import { Neo4jService } from "src/neo4j/neo4j.service";
+import { RequestSong } from "./dto/RequestSong.dto";
 
 @Injectable()
 export class SongRepository {
 	constructor(private neo4jService: Neo4jService) {}
 
-	createOne(body) {
+	createOne(data: RequestSong) {
+		const { name, genre, runningTime } = data;
 		return this.neo4jService
 			.write(
-				`create(s:SONG {
-                    id: apoc.create.uuid(), name: '${body.name}', runningTime: toInteger(${body.runningTime})}) return s`,
+				`CREATE(s:SONG {
+                    id: apoc.create.uuid(), 
+					name: '${name}', 
+					genre: '${genre}',
+					runningTime: toInteger(${runningTime})
+				}) RETURN s`,
 				{}
 			)
 			.then((result) => {
@@ -17,7 +23,7 @@ export class SongRepository {
 			});
 	}
 
-	findOne(songId) {
+	findOne(songId: string) {
 		return this.neo4jService
 			.read(
 				`MATCH (s: SONG) 

@@ -1,27 +1,28 @@
 import { Injectable } from "@nestjs/common";
 import { Neo4jService } from "src/neo4j/neo4j.service";
+import { RequestAlbum } from "./dto/RequestAlbum.dto";
 
 @Injectable()
 export class AlbumRepository {
 	constructor(private neo4jService: Neo4jService) {}
 
-	createOne(body) {
-		const result = this.neo4jService
+	createOne(data: RequestAlbum) {
+		const { name, releaseDate } = data;
+		return this.neo4jService
 			.write(
-				`create (a:ALBUM {
+				`CREATE (a:ALBUM {
                     id: apoc.create.uuid(), 
-                    name: '${body.name}', 
-                    releaseDate: '${body.releaseDate}'
-                }) return a`,
+                    name: '${name}', 
+                    releaseDate: '${releaseDate}'
+                }) RETURN a`,
 				{}
 			)
 			.then((result) => {
 				return result.records[0].get("a").properties;
 			});
-		return result;
 	}
 
-	findOne(albumId) {
+	findOne(albumId: string) {
 		return this.neo4jService
 			.read(
 				`MATCH (a:ALBUM) 

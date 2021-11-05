@@ -5,6 +5,8 @@ import { NotFoundMusicianException } from "../musician/exception/NotFoundMusicia
 import { MusicianRepository } from "../musician/musician.repository";
 import { NotFoundSongException } from "../song/exception/NotFoundSongException";
 import { SongRepository } from "../song/song.repository";
+import { ConnectAlbumToSong } from "./dto/ConnectAlbumToSong.dto";
+import { ConnectMusicianToSong } from "./dto/ConnectMusicianToSong.dto";
 import { NotFoundRelationException } from "./exception/NotFoundRelationException";
 import { RelationRepository } from "./relation.repository";
 
@@ -17,29 +19,29 @@ export class RelationService {
 		private albumRepository: AlbumRepository
 	) {}
 
-	async createMSong(body) {
+	async connectMusicianToSong(data: ConnectMusicianToSong) {
 		// find musician
-		const musician = await this.musicianRepository.findOne(body.musicianId);
+		const musician = await this.musicianRepository.findOne(data.musicianId);
 		if (musician === undefined) throw new NotFoundMusicianException();
 		// find song
-		const song = await this.songRepository.findOne(body.songId);
+		const song = await this.songRepository.findOne(data.songId);
 		if (song === undefined) throw new NotFoundSongException();
 		// create relation
-		return this.relationRepository.createMSong(body);
+		return this.relationRepository.connectMusicianToSong(data);
 	}
 
-	async createASong(body) {
+	async connectAlbumToSong(data: ConnectAlbumToSong) {
 		// find album
-		const album = await this.albumRepository.findOne(body.albumId);
+		const album = await this.albumRepository.findOne(data.albumId);
 		if (album === undefined) throw new NotFoundAlbumException();
 		// find song
-		const song = await this.songRepository.findOne(body.songId);
+		const song = await this.songRepository.findOne(data.songId);
 		if (song === undefined) throw new NotFoundSongException();
 		// create relation
-		return this.relationRepository.createASong(body);
+		return this.relationRepository.connectAlbumToSong(data);
 	}
 
-	async deleteMSong(musicianId, songId) {
+	async unconnectMusicianToSong(musicianId, songId) {
 		// find musician
 		const musician = await this.musicianRepository.findOne(musicianId);
 		if (musician === undefined) throw new NotFoundMusicianException();
@@ -47,7 +49,7 @@ export class RelationService {
 		const song = await this.songRepository.findOne(songId);
 		if (song === undefined) throw new NotFoundSongException();
 		// delete relation
-		const result = await this.relationRepository.deleteMSong(
+		const result = await this.relationRepository.unconnectMusicianToSong(
 			musicianId,
 			songId
 		);
@@ -55,7 +57,7 @@ export class RelationService {
 		return result;
 	}
 
-	async deleteASong(albumId, songId) {
+	async unconnectAlbumToSong(albumId, songId) {
 		// find album
 		const album = await this.albumRepository.findOne(albumId);
 		if (album === undefined) throw new NotFoundAlbumException();
@@ -63,7 +65,10 @@ export class RelationService {
 		const song = await this.songRepository.findOne(songId);
 		if (song === undefined) throw new NotFoundSongException();
 		// delete relation
-		const result = this.relationRepository.deleteASong(albumId, songId);
+		const result = this.relationRepository.unconnectAlbumToSong(
+			albumId,
+			songId
+		);
 		if (result === undefined) throw new NotFoundRelationException();
 		return result;
 	}
