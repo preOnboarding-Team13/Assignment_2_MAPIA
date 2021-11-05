@@ -31,7 +31,7 @@ export class AlbumRepository {
 				{}
 			)
 			.then((result) => {
-				return result.records[0].get("a");
+				return result.records[0]?.get("a");
 			});
 	}
 }
