@@ -22,4 +22,17 @@ export class MusicianRepository {
 				return res.records[0].get("m").properties;
 			});
 	}
+
+	findOne(musicianId: string) {
+		return this.neo4jService
+			.read(
+				`MATCH (m: MUSICIAN)
+				WHERE m.id = '${musicianId}'  
+				RETURN m`,
+				{}
+			)
+			.then((result) => {
+				return result.records[0]?.get("m");
+			});
+	}
 }

@@ -20,4 +20,17 @@ export class AlbumRepository {
 			});
 		return result;
 	}
+
+	findOne(albumId) {
+		return this.neo4jService
+			.read(
+				`MATCH (a:ALBUM) 
+				WHERE a.id = '${albumId}'
+				RETURN a`,
+				{}
+			)
+			.then((result) => {
+				return result.records[0].get("a");
+			});
+	}
 }

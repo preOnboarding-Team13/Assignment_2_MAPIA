@@ -24,20 +24,28 @@ export class RelationRepository {
 	}
 
 	deleteMSong(musicianId, songId) {
-		return this.neo4jService.write(
-			`MATCH (m:MUSICIAN)-[r:HAVE]->(s:SONG)
-			WHERE m.id = '${musicianId}' and s.id= '${songId}'
-			DELETE r`,
-			{}
-		);
+		return this.neo4jService
+			.write(
+				`MATCH (m:MUSICIAN)-[r:HAVE]->(s:SONG)
+				WHERE m.id = '${musicianId}' and s.id= '${songId}'
+				DELETE r RETURN r`,
+				{}
+			)
+			.then((result) => {
+				return result.records[0];
+			});
 	}
 
 	deleteASong(albumId, songId) {
-		return this.neo4jService.write(
-			`MATCH (a:ALBUM)-[r:CONTAIN]->(s:SONG)
-			WHERE a.id = '${albumId}' and s.id= '${songId}'
-			DELETE r`,
-			{}
-		);
+		return this.neo4jService
+			.write(
+				`MATCH (a:ALBUM)-[r:CONTAIN]->(s:SONG)
+				WHERE a.id = '${albumId}' and s.id= '${songId}'
+				DELETE r RETURN r`,
+				{}
+			)
+			.then((result) => {
+				return result.records[0];
+			});
 	}
 }
