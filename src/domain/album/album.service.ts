@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { AlbumRepository } from "./album.repository";
 import { RequestAlbum } from "./dto/RequestAlbum.dto";
 import { UpdateAlbum } from "./dto/UpdateAlbum.dto";
@@ -27,7 +27,7 @@ export class AlbumService {
 				}
 			}
 		}
-		if (queryArr.length === 0) throw new Error();
+		if (queryArr.length === 0) throw new BadRequestException();
 		// find album
 		const album = await this.albumRepository.findOne(albumId);
 		if (album === undefined) throw new NotFoundAlbumException();

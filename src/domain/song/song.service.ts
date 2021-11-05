@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { RequestSong } from "./dto/RequestSong.dto";
 import { UpdateSong } from "./dto/UpdateSong.dto";
 import { NotFoundSongException } from "./exception/NotFoundSongException";
@@ -27,7 +27,7 @@ export class SongService {
 				}
 			}
 		}
-		if (queryArr.length === 0) throw new Error();
+		if (queryArr.length === 0) throw new BadRequestException();
 		// find song
 		const song = await this.songRepository.findOne(songId);
 		if (song === undefined) throw new NotFoundSongException();
