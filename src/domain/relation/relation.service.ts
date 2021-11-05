@@ -65,7 +65,7 @@ export class RelationService {
 		const song = await this.songRepository.findOne(songId);
 		if (song === undefined) throw new NotFoundSongException();
 		// delete relation
-		const result = this.relationRepository.unconnectAlbumToSong(
+		const result = await this.relationRepository.unconnectAlbumToSong(
 			albumId,
 			songId
 		);
