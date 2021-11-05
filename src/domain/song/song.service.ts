@@ -7,7 +7,11 @@ export class SongService {
 
 	createOne(body) {
 		return this.neo4jService.write(
-			`create(s:SONG {name: '${body.name}', runningTime: toInteger(${body.runningTime})}) return s`,
+			`create(s:SONG {
+				id: apoc.create.uuid(), 
+				name: '${body.name}', 
+				runningTime: toInteger(${body.runningTime})
+			}) return s`,
 			{}
 		);
 	}

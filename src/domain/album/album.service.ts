@@ -7,7 +7,11 @@ export class AlbumService {
 
 	createOne(body) {
 		return this.neo4jService.write(
-			`create (a:ALBUM {name: '${body.name}', releaseDate: '${body.releaseDate}'}) return a1`,
+			`create (a:ALBUM {
+				id: apoc.create.uuid(), 
+				name: '${body.name}', 
+				releaseDate: '${body.releaseDate}'
+			}) return a`,
 			{}
 		);
 	}
