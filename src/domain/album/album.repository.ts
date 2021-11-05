@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Neo4jService } from "src/neo4j/neo4j.service";
 import { RequestAlbum } from "./dto/RequestAlbum.dto";
+import { UpdateAlbum } from "./dto/UpdateAlbum.dto";
 
 @Injectable()
 export class AlbumRepository {
@@ -34,4 +35,17 @@ export class AlbumRepository {
 				return result.records[0].get("a");
 			});
 	}
+
+	updateOne(queryArr: string[], albumId: string) {
+		const query = `MATCH (a:ALBUM {id:'${albumId}'}) SET ${queryArr.join(
+			", "
+		)} RETURN a`;
+		return this.neo4jService.write(query, {}).then((result) => {
+			return result.records[0].get("a").properties;
+		});
+	}
 }
+
+// `MATCH (a:ALBUM {id:'${albumId}'})
+// SET a.name = '${name}', a.releaseDate = '${releaseDate}'
+// RETURN a`

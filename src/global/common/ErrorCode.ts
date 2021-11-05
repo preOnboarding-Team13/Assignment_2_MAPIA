@@ -25,6 +25,9 @@ export class ErrorCode {
 		return new ErrorCode(404, "연결 관계가 없습니다.");
 	}
 	public static badRequest() {
+		return new ErrorCode(400, "요청 정보가 올바르지않습니다.");
+	}
+	public static notFound() {
 		return new ErrorCode(404, "잘못된 API 경로입니다.");
 	}
 }

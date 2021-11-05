@@ -34,4 +34,13 @@ export class MusicianRepository {
 				return result.records[0]?.get("m");
 			});
 	}
+
+	updateOne(queryArr: string[], musicianId: string) {
+		const query = `MATCH (m:MUSICIAN {id:'${musicianId}'}) SET ${queryArr.join(
+			", "
+		)} RETURN m`;
+		return this.neo4jService.write(query, {}).then((result) => {
+			return result.records[0].get("m").properties;
+		});
+	}
 }
