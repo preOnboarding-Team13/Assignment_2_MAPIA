@@ -1,4 +1,4 @@
-import { Controller, Body, Post } from "@nestjs/common";
+import { Controller, Body, Post, Delete, Param } from "@nestjs/common";
 import { RequestAlbum } from "./dto/RequestAlbum.dto";
 import { AlbumService } from "./album.service";
 import { SuccessResponse } from "src/global/common/successResponse";
@@ -14,5 +14,11 @@ export class AlbumController {
 			SuccessCode.createAlbum(),
 			await this.albumService.createOne(body)
 		);
+	}
+
+	@Delete(":albumId")
+	async deleteAlbum(@Param("albumId") albumId: string) {
+		await this.albumService.deleteOne(albumId);
+		return SuccessResponse.response(SuccessCode.deleteAlbum());
 	}
 }

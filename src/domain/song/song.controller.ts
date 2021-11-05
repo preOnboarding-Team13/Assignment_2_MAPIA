@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Param, Post } from "@nestjs/common";
 import { SuccessCode } from "src/global/common/successCode";
 import { SuccessResponse } from "src/global/common/successResponse";
 import { RequestSong } from "./dto/RequestSong.dto";
@@ -14,5 +14,11 @@ export class SongController {
 			SuccessCode.createSong(),
 			await this.songService.createOne(body)
 		);
+	}
+
+	@Delete(":songId")
+	async deleteSong(@Param("songId") songId: string) {
+		await this.songService.deleteOne(songId);
+		return SuccessResponse.response(SuccessCode.deleteSong());
 	}
 }

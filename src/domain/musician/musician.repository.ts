@@ -39,7 +39,8 @@ export class MusicianRepository {
 		return this.neo4jService
 			.write(
 				`MATCH (m:MUSICIAN {id: '${musicianId}'})
-				DETACH DELETE m return m`
+				DETACH DELETE m 
+				RETURN m`
 			)
 			.then((result) => {
 				return result.records[0]?.get("m");

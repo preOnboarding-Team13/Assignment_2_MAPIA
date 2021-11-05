@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { RequestMusician } from "./dto/RequestMusician.dto";
+import { NotFoundMusicianException } from "./exception/NotFoundMusicianException";
 import { MusicianRepository } from "./musician.repository";
 
 @Injectable()
@@ -8,7 +9,8 @@ export class MusicianService {
 	createOne(data: RequestMusician) {
 		return this.musicianRepository.createOne(data);
 	}
-	deleteOne(musicianId: string) {
-		return this.musicianRepository.deleteOne(musicianId);
+	async deleteOne(musicianId: string) {
+		const misician = await this.musicianRepository.deleteOne(musicianId);
+		if (misician === undefined) throw new NotFoundMusicianException();
 	}
 }

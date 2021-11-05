@@ -34,4 +34,16 @@ export class AlbumRepository {
 				return result.records[0]?.get("a");
 			});
 	}
+
+	deleteOne(albumId: string) {
+		return this.neo4jService
+			.write(
+				`MATCH (a:ALBUM {id: '${albumId}'})
+				DETACH DELETE a 
+				RETURN a`
+			)
+			.then((result) => {
+				return result.records[0]?.get("a");
+			});
+	}
 }

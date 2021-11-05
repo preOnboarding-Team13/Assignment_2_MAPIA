@@ -35,4 +35,17 @@ export class SongRepository {
 				return result.records[0]?.get("s");
 			});
 	}
+
+	deleteOne(songId: string) {
+		return this.neo4jService
+			.write(
+				`MATCH (s:SONG {id: '${songId}'})
+				DETACH DELETE s 
+				RETURN s`
+			)
+			.then((result) => {
+				return result.records[0]?.get("s");
+			});
+	}
+
 }

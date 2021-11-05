@@ -16,15 +16,8 @@ export class MusicianController {
 		);
 	}
 	@Delete(":musicianId")
-	async deleteMSong(@Param("musicianId") musicianId: string) {
-		console.log("musicianId", musicianId);
-		const request = await this.musicianService.deleteOne(musicianId);
-		if (request) {
-			console.log("삭제 함");
-		} else {
-			console.log("해당 id 가 없음");
-		}
-		if (request) return request;
-		return 1;
+	async deleteMusician(@Param("musicianId") musicianId: string) {
+		await this.musicianService.deleteOne(musicianId);
+		return SuccessResponse.response(SuccessCode.deleteMusician());
 	}
 }
