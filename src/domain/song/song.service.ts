@@ -1,14 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import { Neo4jService } from "src/neo4j/neo4j.service";
+import { SongRepository } from "./song.repository";
 
 @Injectable()
 export class SongService {
-	constructor(private neo4jService: Neo4jService) {}
+	constructor(private songRepository: SongRepository) {}
 
 	createOne(body) {
-		return this.neo4jService.write(
-			`create(s:SONG {name: '${body.name}', runningTime: toInteger(${body.runningTime})}) return s`,
-			{}
-		);
+		return this.songRepository.createOne(body);
 	}
 }
