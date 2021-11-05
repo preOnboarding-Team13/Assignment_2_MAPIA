@@ -27,6 +27,18 @@ export class SuccessCode {
 		return new SuccessCode(201, "앨범이 등록되었습니다.");
 	}
 
+	public static updateSong() {
+		return new SuccessCode(201, "곡이 수정되었습니다.");
+	}
+
+	public static updateMusician() {
+		return new SuccessCode(201, "뮤지션이 수정되었습니다.");
+	}
+
+	public static updateAlbum() {
+		return new SuccessCode(201, "앨범이 수정되었습니다.");
+	}
+
 	public static deleteSong() {
 		return new SuccessCode(200, "곡이 삭제되었습니다.");
 	}
