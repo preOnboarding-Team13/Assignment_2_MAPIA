@@ -26,6 +26,32 @@
 
 <br/>
 
+
+
+## 🛠 프로젝트 빌드 및 서버 실행 방법
+
+1. 상단의 Code 버튼을 눌러 경로를 복사한 후 클론 받습니다.
+
+```
+$ git clone https://github.com/preOnboarding-Team13/Assignment_1_AIMMO_nest.git
+```
+
+2. 패키지를 설치합니다.
+
+```
+$ npm install
+```
+
+3. 서버를 실행해 줍니다.
+
+```
+$ npm start
+```
+
+4. 정해진 API에 접근하여 서비스를 이용합니다.
+
+
+
 ## 📝 과제 요구사항
 
 ### [필수 포함 사항]
@@ -60,7 +86,7 @@
 
 <br/>
 
-## ⚒ 사용 기술
+## 🏫 사용 기술
 
 -   Backend : <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=NestJS&logoColor=white"/></a> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/></a> <img src="https://img.shields.io/badge/GraphQL-E10098?style=flat&logo=GraphQL&logoColor=white"/></a>
 -   DataBase : <img src="https://img.shields.io/badge/Neo4j-008CC1?style=flat&logo=Neo4j&logoColor=white"/></a>
@@ -223,7 +249,7 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 개발시에 팀원들이 모두 같은 DB를 이용하고, 배포시에도 편리하도록 local DBMS가 아닌 클라우드 형태의 Neo4j aruaDB 를 이용했습니다. 
 
-![Neo4j_ARUA](.\images\Neo4j_ARUA.png)
+![Neo4j_ARUA](https://user-images.githubusercontent.com/43634786/140530811-9877e852-771d-49e0-a672-1f69ec28ba4e.png)
 
 #### GraphQL 관련 내용...
 
@@ -238,4 +264,9 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 ## Postman 주소
 
-[Postman]()
+[Postman](https://documenter.getpostman.com/view/15410333/UVC2G8wv)
+
+
+
+## TIL 블로그 주소
+
