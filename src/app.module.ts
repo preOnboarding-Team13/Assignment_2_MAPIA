@@ -5,6 +5,7 @@ import { Neo4jModule } from "./neo4j/neo4j.module";
 import { ConfigModule } from "@nestjs/config";
 import { SongModule } from "./domain/song/song.module";
 import { AlbumModule } from "./domain/album/album.module";
+import { MusicianModule } from "./domain/musician/musician.module";
 
 @Module({
 	imports: [
@@ -16,7 +17,8 @@ import { AlbumModule } from "./domain/album/album.module";
 			password: process.env.NEO4J_PASSWORD
 		}),
 		SongModule,
-		AlbumModule
+		AlbumModule,
+		MusicianModule
 	],
 	controllers: [AppController],
 	providers: [AppService]
