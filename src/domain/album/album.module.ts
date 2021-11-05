@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { Neo4jModule } from "src/neo4j/neo4j.module";
-import { Neo4jService } from "src/neo4j/neo4j.service";
 import { AlbumController } from "./album.controller";
+import { AlbumRepository } from "./album.repository";
 import { AlbumService } from "./album.service";
 
 @Module({
@@ -16,6 +16,6 @@ import { AlbumService } from "./album.service";
 		})
 	],
 	controllers: [AlbumController],
-	providers: [AlbumService]
+	providers: [AlbumService, AlbumRepository]
 })
 export class AlbumModule {}

@@ -11,9 +11,6 @@ export class AlbumController {
 	@Post()
 	async create(@Body() body: CreateDto) {
 		const result = await this.albumService.createOne(body);
-		return SuccessResponse.response(
-			SuccessCode.createAlbum(),
-			result.records[0].get("a").properties
-		);
+		return SuccessResponse.response(SuccessCode.createAlbum(), result);
 	}
 }
