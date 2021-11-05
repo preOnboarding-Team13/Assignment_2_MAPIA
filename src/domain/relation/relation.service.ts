@@ -12,4 +12,12 @@ export class RelationService {
 	createASong(body) {
 		return this.relationRepository.createASong(body);
 	}
+
+	deleteMSong(body) {
+		return this.relationRepository.deleteMSong(body);
+	}
+
+	deleteASong(body) {
+		return this.relationRepository.deleteASong(body);
+	}
 }

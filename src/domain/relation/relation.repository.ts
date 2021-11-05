@@ -22,4 +22,22 @@ export class RelationRepository {
 			{}
 		);
 	}
+
+	deleteMSong(body) {
+		return this.neo4jService.write(
+			`MATCH (m:MUSICIAN)-[r:HAVE]->(s:SONG)
+			WHERE m.id = '${body.musicianId}' and s.id= '${body.songId}'
+			DELETE r`,
+			{}
+		);
+	}
+
+	deleteASong(body) {
+		return this.neo4jService.write(
+			`MATCH (a:ALBUM)-[r:CONTAIN]->(s:SONG)
+			WHERE a.id = '${body.albumId}' and s.id= '${body.songId}'
+			DELETE r`,
+			{}
+		);
+	}
 }
