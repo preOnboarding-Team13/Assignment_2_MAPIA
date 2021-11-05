@@ -1,5 +1,6 @@
 type Query {
-	readSong: [Song!]!
+	readSong(id: String!): [Song!]!
+	readAllSong: [Song!]!
 }
 
 type Song {

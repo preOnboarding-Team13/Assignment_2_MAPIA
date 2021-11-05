@@ -7,9 +7,19 @@ import { Song } from "./entity/song.entity";
 @Injectable()
 export class ReadService {
 	constructor(private readonly neo4jService: Neo4jService) {}
-	async readSong() {
+	async readAllSong() {
 		const readSong = await this.neo4jService
-			.read(`MATCH (s:SONG) RETURN s`)
+			.read(`MATCH (s:SONG) RETURN s`, {})
+			.then((res) =>
+				res.records.map((row) => new Song(row.get("s")).toJson())
+			);
+
+		return readSong;
+	}
+
+	async readSong(id: string) {
+		const readSong = await this.neo4jService
+			.read(`MATCH (s:SONG) WHERE s.id='${id}' RETURN s`)
 			.then((res) =>
 				res.records.map((row) => new Song(row.get("s")).toJson())
 			);
