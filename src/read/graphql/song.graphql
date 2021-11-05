@@ -1,0 +1,13 @@
+type Query {
+	readSong(id: String!): [Song!]!
+	readAllSong: [Song!]!
+}
+
+type Song {
+	id: String!
+	name: String!
+	genre: String!
+	runningTime: Int!
+	musician: [Musician!]!
+	album: [Album!]!
+}

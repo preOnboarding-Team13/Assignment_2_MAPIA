@@ -1,0 +1,12 @@
+type Query {
+	readAlbum(id: String!): [Album!]!
+	readAllAlbum: [Album!]!
+}
+
+type Album {
+	id: String!
+	name: String!
+	releaseDate: String!
+	song: [Song!]!
+	musician: [Musician!]!
+}

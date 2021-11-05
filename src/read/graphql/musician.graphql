@@ -1,0 +1,12 @@
+type Query {
+	readAllMusician: [Musician!]!
+	readMusician(id: String!): [Musician!]!
+}
+
+type Musician {
+	id: String!
+	name: String!
+	company: String!
+	album: [Album!]!
+	song: [Song!]!
+}

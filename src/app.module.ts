@@ -1,16 +1,23 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 import { Neo4jModule } from "./neo4j/neo4j.module";
 import { ConfigModule } from "@nestjs/config";
 import { SongModule } from "./domain/song/song.module";
 import { AlbumModule } from "./domain/album/album.module";
 import { MusicianModule } from "./domain/musician/musician.module";
 import { RelationModule } from "./domain/relation/relation.module";
+import { GraphQLModule } from "@nestjs/graphql";
+import { ReadModule } from "./read/read.module";
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({ envFilePath: [".env"], isGlobal: true }),
+		GraphQLModule.forRoot({
+			typePaths: ["./**/*.graphql"],
+			buildSchemaOptions: {
+				dateScalarMode: "isoDate",
+				numberScalarMode: "integer"
+			}
+		}),
 		Neo4jModule.forRoot({
 			scheme: "neo4j+s",
 			host: process.env.NEO4J_HOST,
@@ -20,9 +27,8 @@ import { RelationModule } from "./domain/relation/relation.module";
 		SongModule,
 		AlbumModule,
 		MusicianModule,
-		RelationModule
-	],
-	controllers: [AppController],
-	providers: [AppService]
+		RelationModule,
+		ReadModule
+	]
 })
 export class AppModule {}
