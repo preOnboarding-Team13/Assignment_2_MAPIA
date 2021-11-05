@@ -9,11 +9,13 @@ const error = {
 	IS_EMPTY: "should not be empty",
 	NOT_FOUND_MUSICIAN: "해당 뮤지션이 없습니다.",
 	NOT_FOUND_SONG: "해당 곡이 없습니다.",
-	NOT_FOUND_ALBUM: "해당 앨범이 없습니다."
+	NOT_FOUND_ALBUM: "해당 앨범이 없습니다.",
+	NOT_FOUND_RELATIONSHIP: "연결 관계가 없습니다."
 };
 
 const success = {
-	CONNECTED: "연결되었습니다."
+	CONNECTED: "연결되었습니다.",
+	UNCONNECTED: "연결이 해제되었습니다."
 };
 
 const uuid = {
@@ -192,6 +194,48 @@ describe("AppController (e2e)", () => {
 				.expect((res) => {
 					const message = getErrorMessages(res);
 					expect(message).toBe(error.NOT_FOUND_ALBUM);
+				});
+		});
+	});
+
+	describe("Delete Relationship API (POST)", () => {
+		it("/relations/m-to-s/:musicianId/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/relations/m-to-s/${uuid.MUSICIAN}/${uuid.SONG}`)
+				.expect(200)
+				.expect((res) => {
+					const { message } = res.body;
+					expect(message).toBe(success.UNCONNECTED);
+				});
+		});
+
+		it("/relations/m-to-s/:musicianId/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/relations/m-to-s/${uuid.MUSICIAN}/${uuid.SONG}`)
+				.expect(404)
+				.expect((res) => {
+					const message = getErrorMessages(res);
+					expect(message).toBe(error.NOT_FOUND_RELATIONSHIP);
+				});
+		});
+
+		it("/relations/a-to-s/:albumId/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/relations/a-to-s/${uuid.ALBUM}/${uuid.SONG}`)
+				.expect(200)
+				.expect((res) => {
+					const { message } = res.body;
+					expect(message).toBe(success.UNCONNECTED);
+				});
+		});
+
+		it("/relations/a-to-s/:albumId/:songId", () => {
+			return request(app.getHttpServer())
+				.delete(`/relations/a-to-s/${uuid.ALBUM}/${uuid.SONG}`)
+				.expect(404)
+				.expect((res) => {
+					const message = getErrorMessages(res);
+					expect(message).toBe(error.NOT_FOUND_RELATIONSHIP);
 				});
 		});
 	});
