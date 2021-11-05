@@ -191,6 +191,9 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 ![GraphDB](https://user-images.githubusercontent.com/60311404/140509284-2a97df44-2504-4100-91ae-515df047e9b0.png)
 
+![image](https://user-images.githubusercontent.com/41619081/140576824-c7c5edce-ccb5-41fa-bb53-50bf1caa9657.png)
+
+
 <br/>
 
 ## 🔗 구현 기능
@@ -380,7 +383,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 
 <br/>
 
-## 🐾 API
+## 🐾 API 
 
 [Postman 주소-링크](https://documenter.getpostman.com/view/15410333/UVC2G8wv)
 
