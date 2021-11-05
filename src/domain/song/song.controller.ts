@@ -11,9 +11,6 @@ export class SongController {
 	@Post()
 	async create(@Body() body: CreateDto) {
 		const result = await this.songService.createOne(body);
-		return SuccessResponse.response(
-			SuccessCode.createSong(),
-			result.records[0].get("s").properties
-		);
+		return SuccessResponse.response(SuccessCode.createSong(), result);
 	}
 }

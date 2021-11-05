@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { Neo4jModule } from "src/neo4j/neo4j.module";
 import { SongController } from "./song.controller";
+import { SongRepository } from "./song.repository";
 import { SongService } from "./song.service";
 
 @Module({
@@ -15,6 +16,6 @@ import { SongService } from "./song.service";
 		})
 	],
 	controllers: [SongController],
-	providers: [SongService]
+	providers: [SongService, SongRepository]
 })
 export class SongModule {}
