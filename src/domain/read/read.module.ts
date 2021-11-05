@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
-import { AlbumRead } from "./albumRead.resolver";
-import { MusicianRead } from "./musicianRead.resolver";
 import { ReadService } from "./read.service";
-import { SongRead } from "./songRead.resolver";
+import { AlbumRead } from "./resolver/albumRead.resolver";
+import { MusicianRead } from "./resolver/musicianRead.resolver";
+import { SongRead } from "./resolver/songRead.resolver";
 
 @Module({
 	providers: [MusicianRead, SongRead, AlbumRead, ReadService]

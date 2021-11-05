@@ -6,7 +6,7 @@ import { AlbumModule } from "./domain/album/album.module";
 import { MusicianModule } from "./domain/musician/musician.module";
 import { RelationModule } from "./domain/relation/relation.module";
 import { GraphQLModule } from "@nestjs/graphql";
-import { ReadModule } from "./read/read.module";
+import { ReadModule } from "./domain/read/read.module";
 
 @Module({
 	imports: [

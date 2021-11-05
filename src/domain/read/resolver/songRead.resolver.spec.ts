@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { Song } from "./graphql/graphql.schema";
-import { ReadService } from "./read.service";
+import { Song } from "../graphql/graphql.schema";
+import { ReadService } from "../read.service";
 import { SongRead } from "./songRead.resolver";
 
 const mockService = {

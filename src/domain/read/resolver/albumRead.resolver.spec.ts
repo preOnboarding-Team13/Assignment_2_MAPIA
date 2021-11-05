@@ -1,7 +1,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { AlbumRead } from "./albumRead.resolver";
-import { Album } from "./graphql/graphql.schema";
-import { ReadService } from "./read.service";
+import { Album } from "../graphql/graphql.schema";
+import { ReadService } from "../read.service";
 
 const mockService = {
 	readAllAlbum: jest.fn(),

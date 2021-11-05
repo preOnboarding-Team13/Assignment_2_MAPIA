@@ -1,7 +1,7 @@
 import { ClassSerializerInterceptor, UseInterceptors } from "@nestjs/common";
 import { Args, Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
-import { Album, Musician, Song } from "src/read/graphql/graphql.schema";
-import { ReadService } from "./read.service";
+import { Album, Musician, Song } from "src/domain/read/graphql/graphql.schema";
+import { ReadService } from "../read.service";
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Resolver(() => Album)

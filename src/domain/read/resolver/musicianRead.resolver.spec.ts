@@ -1,7 +1,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { Musician } from "./graphql/graphql.schema";
+import { Musician } from "../graphql/graphql.schema";
+import { ReadService } from "../read.service";
 import { MusicianRead } from "./musicianRead.resolver";
-import { ReadService } from "./read.service";
 
 const mockService = {
 	readAllMusician: jest.fn(),

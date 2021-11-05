@@ -57,7 +57,3 @@ export class AlbumRepository {
 		});
 	}
 }
-
-// `MATCH (a:ALBUM {id:'${albumId}'})
-// SET a.name = '${name}', a.releaseDate = '${releaseDate}'
-// RETURN a`

@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { AlbumRepository } from "./album.repository";
 import { RequestAlbum } from "./dto/RequestAlbum.dto";
-import { NotFoundAlbumException } from "./exception//NotFoundAlbumException";
 import { UpdateAlbum } from "./dto/UpdateAlbum.dto";
+import { NotFoundAlbumException } from "./exception/NotFoundAlbumException";
 
 @Injectable()
 export class AlbumService {
