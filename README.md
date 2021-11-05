@@ -108,13 +108,10 @@ $ npm start
 각 domain은 아래와 같이 구성되어 있습니다.
 
 - module
-- controller (request의 유효성 검사)
-- service (도메인 핵심 비즈니스 로직)
-- repository (DB 접근과 쿼리에 대한 코드)
+- controller
+- service
+- repository
 - exception folder (for Custom Exception)
-
-비즈니스 로직에서 DB에 대한 종속성을 최대한 제거하기 하기 위해서 Repository 계층을 만들었습니다.
-Service는 Repository가 어떤 DB를 사용하는지 알지 못하여 DB가 바뀌어도 최대한 Service 코드에 영향이 가지 않도록 하기 위함입니다.
 
 read 폴더: GraphQL 관련 폴더
 
@@ -201,12 +198,12 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 ### 1) Check List
 
 
-```bash
--   **화면별 Read API 요구사항 (GraphQL)**
+- **화면별 Read API 요구사항 (GraphQL)**
+   
  `곡` 페이지
 
   ✅ 해당 `곡`이 속한 `앨범`을 가져오는 API
-
+    
   ✅ 해당 `곡`을 쓴 `뮤지션` 목록을 가져오는 API
 
  `앨범` 페이지
@@ -241,14 +238,15 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
   - `뮤지션` - `곡` 연결과 `곡` - `앨범` 연결이 되어있으면
     GraphDB (neo4j) 에서 `뮤지션` - [*] - `앨범` 연결 여부를 뽑을 수 있습니다. **이 특성을 Read API에서 활용**해주세요.
-```
+
 
 - **Test**
 
   ✅ E2E Test
   
-  [ ] Unit Test 
-
+  ✅ Unit Test - GraphQL
+  
+  🔺 Unit Test - Domain
 
 ### 2) 상세 내용
 
@@ -399,34 +397,37 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 
 ### 3. Create API를 이용하여 각각의 곡, 앨범, 뮤지션을 생성하여 id값을 얻습니다.
 
-![image](https://user-images.githubusercontent.com/41619081/140548876-82725eda-2a69-466d-af15-dec1acfd5952.png)
+![image](https://user-images.githubusercontent.com/41619081/140575288-06fbc578-3080-4d31-9d19-3e440ce314b9.png)
 
 <br/>
 
 ### 4. 각각의 얻은 id값을 이용하여 앨범-곡, 뮤지션-곡을 연결 또는 연결해제 합니다.
 
-![image](https://user-images.githubusercontent.com/41619081/140549264-0c1af0e2-2888-4a01-98c0-c71d0ed453ff.png)
+![image](https://user-images.githubusercontent.com/41619081/140575463-2129757e-8a2d-4718-ab91-60732f9a8934.png)
 
 <br/>
 
 ### 5. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션에 대한 원하는 정보를 하나 또는 전부 가져올 수 있습니다. 
 
-![image](https://user-images.githubusercontent.com/41619081/140551126-bb439cd6-b61c-4387-b155-b2096a83d997.png)
-![image](https://user-images.githubusercontent.com/41619081/140551371-c142572d-64b6-4f44-8e6f-b79f3b3e2d26.png)
+![image](https://user-images.githubusercontent.com/41619081/140576239-24d15fa3-22f1-4761-b220-433d39db6225.png)
+![image](https://user-images.githubusercontent.com/41619081/140576097-95535ed8-d982-425d-8b53-5f5471d1d238.png)
 
 <br/>
 
 ### 6. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션/ 앨범-곡, 뮤지션-곡 연결을 삭제할 수 있습니다.
 
-![image](https://user-images.githubusercontent.com/41619081/140564965-0b5710a4-f4bc-4729-bd5c-29591f848bd1.png)
-![image](https://user-images.githubusercontent.com/41619081/140565346-85acfda6-20d4-448c-a410-4705abd32c1d.png)
+![image](https://user-images.githubusercontent.com/41619081/140575725-c5692915-8047-4174-be6e-bb080970e0cd.png)
+
+### 7. 각각의 얻은 id값을 이용하여 곡, 앨범, 뮤지션의 정보를 수정할 수 있습니다.
+
+![image](https://user-images.githubusercontent.com/41619081/140576422-3db6d354-4b58-4c2c-8e34-7d7da28a08d6.png)
 
 
 
 <br/>
 
 
-## TIL 블로그 주소
+## 🍭 TIL 블로그 주소
 
 - 김바다 : 
 - 김효민 :
