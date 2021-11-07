@@ -1,4 +1,4 @@
-# 🔥 Assignment_MAIA(with NestJS)
+# 🔥 Assignment_MAPIA(with NestJS)
 
 🎼 wanted x wecode 프리온보딩 백엔드 코스 - [Assignment 2] 마피아컴퍼니
 
