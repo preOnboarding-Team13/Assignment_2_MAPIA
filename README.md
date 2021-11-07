@@ -1,4 +1,4 @@
-# 🔥 Assignment_MAFIA(with NestJS)
+# 🔥 Assignment_MAIA(with NestJS)
 
 🎼 wanted x wecode 프리온보딩 백엔드 코스 - [Assignment 2] 마피아컴퍼니
 
@@ -98,12 +98,13 @@ $ npm start
 
 ## 📂 폴더 구조
 
-4개의 domain을 생성했습니다.
+5개의 domain을 생성했습니다.
 
 - album
 - musician
 - song
 - relation 
+- read
 
 각 domain은 아래와 같이 구성되어 있습니다.
 
@@ -136,6 +137,29 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 │  │  │  └── ...
 │  │  ├── song
 │  │  │  └── ...
+
+│  │  ├── read
+│  │  │  ├── entity
+│  │  │  │  ├── album.entity.ts
+│  │  │  │  ├── musician.entity.ts
+│  │  │  │  └── song.entity.ts
+│  │  │  ├── graphql
+│  │  │  │  ├── album.graphql
+│  │  │  │  ├── graphql.schema.ts
+│  │  │  │  ├── musician.graphql
+│  │  │  │  └── song.graphql
+│  │  │  ├── loader
+│  │  │  │  └── haveSongDataLoader.loader.ts
+│  │  │  ├── resolver
+│  │  │  │  ├── albumRead.resolver.ts
+│  │  │  │  ├── albumRead.resolver.spec.ts
+│  │  │  │  ├── musicianRead.resolver.ts
+│  │  │  │  ├── musicianRead.resolver.spec.ts
+│  │  │  │  ├── songRead.resolver.ts
+│  │  │  │  └── songRead.resolver.spec.ts
+│  │  │  ├── read.module.ts
+│  │  │  ├── read.service.spec.ts
+│  │  │  ├── read.service.ts
 │  ├── global
 │  │  └── common
 │  │  │  ├── commonResponse.ts
@@ -143,33 +167,15 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 │  │  │  ├── errorResponse.ts
 │  │  │  ├── successCode.ts
 │  │  │  └── successResponse.ts
+│  │  └── exception
+│  │  │  └── errorHandler.ts
 │  ├── neo4j
 │  │  ├── neo4j.constants.ts
 │  │  ├── neo4j.module.ts
 │  │  ├── neo4j.service.spec.ts
 │  │  ├── neo4j.service.ts
 │  │  └── neo4j.util.ts
-│  ├── read
-│  │  ├── entity
-│  │  │  ├── album.entity.ts
-│  │  │  ├── musician.entity.ts
-│  │  │  └── song.entity.ts
-│  │  ├── graphql
-│  │  │  ├── album.graphql
-│  │  │  ├── graphql.schema.ts
-│  │  │  ├── musician.graphql
-│  │  │  └── song.graphql
-│  │  ├── albumRead.resolver.ts
-│  │  ├── musicianRead.resolver.ts
-│  │  ├── read.module.ts
-│  │  ├── read.resolver.spec.ts
-│  │  ├── read.service.spec.ts
-│  │  ├── read.service.ts
-│  │  └── songRead.resolver.ts
-│  ├── app.controller.spec.ts
-│  ├── app.controller.ts
 │  ├── app.module.ts
-│  ├── app.service.ts
 │  ├── main.ts
 │  └── neo4j-config.interface.ts
 ├── test
@@ -434,7 +440,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 
 - 김바다 : 
 - 김효민 :
-- 원동균 :
+- 원동균 : [티스토리 블로그](https://tristy.tistory.com/44)
 - 이나영 :
 - 장희진 : 
 - 조재복 : 
