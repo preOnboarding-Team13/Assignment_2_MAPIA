@@ -21,13 +21,13 @@ export class RelationController {
 	@Post("m-to-s")
 	async connectMusicianToSong(@Body() body: ConnectMusicianToSong) {
 		await this.relationService.connectMusicianToSong(body);
-		return SuccessResponse.response(SuccessCode.createRelationship());
+		return SuccessResponse.response(SuccessCode.CreateRelationship);
 	}
 
 	@Post("a-to-s")
 	async connectAlbumToSong(@Body() body: ConnectAlbumToSong) {
 		await this.relationService.connectAlbumToSong(body);
-		return SuccessResponse.response(SuccessCode.createRelationship());
+		return SuccessResponse.response(SuccessCode.CreateRelationship);
 	}
 
 	@Delete("m-to-s/:musicianId/:songId")
@@ -36,7 +36,7 @@ export class RelationController {
 		@Param("songId") songId: string
 	) {
 		await this.relationService.unconnectMusicianToSong(musicianId, songId);
-		return SuccessResponse.response(SuccessCode.deleteRelationship());
+		return SuccessResponse.response(SuccessCode.DeleteRelationship);
 	}
 
 	@Delete("a-to-s/:albumId/:songId")
@@ -45,6 +45,6 @@ export class RelationController {
 		@Param("songId") songId: string
 	) {
 		await this.relationService.unconnectAlbumToSong(albumId, songId);
-		return SuccessResponse.response(SuccessCode.deleteRelationship());
+		return SuccessResponse.response(SuccessCode.DeleteRelationship);
 	}
 }

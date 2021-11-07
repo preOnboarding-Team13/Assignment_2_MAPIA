@@ -22,7 +22,7 @@ export class AlbumController {
 	@Post()
 	async create(@Body() body: RequestAlbum): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.createAlbum(),
+			SuccessCode.CreateAlbum,
 			await this.albumService.createOne(body)
 		);
 	}
@@ -30,7 +30,7 @@ export class AlbumController {
 	@Delete(":albumId")
 	async deleteAlbum(@Param("albumId") albumId: string) {
 		await this.albumService.deleteOne(albumId);
-		return SuccessResponse.response(SuccessCode.deleteAlbum());
+		return SuccessResponse.response(SuccessCode.DeleteAlbum);
 	}
 	@Patch(":albumId")
 	async update(
@@ -38,7 +38,7 @@ export class AlbumController {
 		@Param("albumId") albumId: string
 	): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.updateAlbum(),
+			SuccessCode.UpdateAlbum,
 			await this.albumService.updateOne(data, albumId)
 		);
 	}

@@ -12,7 +12,7 @@ export class SongController {
 	@Post()
 	async create(@Body() body: RequestSong): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.createSong(),
+			SuccessCode.CreateSong,
 			await this.songService.createOne(body)
 		);
 	}
@@ -20,7 +20,7 @@ export class SongController {
 	@Delete(":songId")
 	async deleteSong(@Param("songId") songId: string) {
 		await this.songService.deleteOne(songId);
-		return SuccessResponse.response(SuccessCode.deleteSong());
+		return SuccessResponse.response(SuccessCode.DeleteSong);
 	}
 	@Patch(":songId")
 	async update(
@@ -28,7 +28,7 @@ export class SongController {
 		@Param("songId") songId: string
 	): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.updateSong(),
+			SuccessCode.UpdateSong,
 			await this.songService.updateOne(data, songId)
 		);
 	}

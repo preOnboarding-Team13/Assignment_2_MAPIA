@@ -1,7 +1,8 @@
 import { HttpException, HttpStatus } from "@nestjs/common";
+import { ErrorCode } from "src/global/common/errorCode";
 
 export class NotFoundRelationException extends HttpException {
 	constructor() {
-		super("연결 관계가 없습니다.", HttpStatus.NOT_FOUND);
+		super(ErrorCode.NotFoundRelation, HttpStatus.NOT_FOUND);
 	}
 }

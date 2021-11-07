@@ -1,7 +1,8 @@
 import { HttpException, HttpStatus } from "@nestjs/common";
+import { ErrorCode } from "src/global/common/errorCode";
 
 export class NotFoundMusicianException extends HttpException {
 	constructor() {
-		super("해당 뮤지션이 없습니다.", HttpStatus.NOT_FOUND);
+		super(ErrorCode.NotFoundMusician, HttpStatus.NOT_FOUND);
 	}
 }

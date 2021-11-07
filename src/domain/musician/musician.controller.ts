@@ -22,14 +22,14 @@ export class MusicianController {
 	@Post()
 	async create(@Body() data: RequestMusician): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.createMusician(),
+			SuccessCode.CreateMusician,
 			await this.musicianService.createOne(data)
 		);
 	}
 	@Delete(":musicianId")
 	async deleteMusician(@Param("musicianId") musicianId: string) {
 		await this.musicianService.deleteOne(musicianId);
-		return SuccessResponse.response(SuccessCode.deleteMusician());
+		return SuccessResponse.response(SuccessCode.DeleteMusician);
 	}
 	@Patch(":musicianId")
 	async update(
@@ -37,7 +37,7 @@ export class MusicianController {
 		@Param("musicianId") musicianId: string
 	): Promise<SuccessResponse> {
 		return SuccessResponse.response(
-			SuccessCode.updateMusician(),
+			SuccessCode.UpdateMusician,
 			await this.musicianService.updateOne(data, musicianId)
 		);
 	}
