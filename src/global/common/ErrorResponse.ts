@@ -4,8 +4,8 @@ import { ErrorCode } from "./errorCode";
 export class ErrorResponse extends CommonResponse {
 	constructor(errorCode: ErrorCode) {
 		super();
-		this.statusCode = errorCode.getStatusCode();
-		this.message = errorCode.getMessage();
+		this.statusCode = errorCode.StatusCode;
+		this.message = errorCode.Message;
 	}
 
 	public static response(errorCode: ErrorCode) {

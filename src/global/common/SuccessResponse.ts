@@ -5,8 +5,8 @@ export class SuccessResponse extends CommonResponse {
 	private data: any;
 	constructor(successCode: SuccessCode, data?: any) {
 		super();
-		this.statusCode = successCode.getStatusCode();
-		this.message = successCode.getMessage();
+		this.statusCode = successCode.StatusCode;
+		this.message = successCode.Message;
 		this.data = data;
 	}
 
