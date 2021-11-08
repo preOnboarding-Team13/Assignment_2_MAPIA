@@ -208,7 +208,8 @@ neo4j 폴더: neo4j 설정 및 연결 관련 폴더
 
 
 - **화면별 Read API 요구사항 (GraphQL)**
-   
+  
+
  `곡` 페이지
 
   ✅ 해당 `곡`이 속한 `앨범`을 가져오는 API
@@ -442,7 +443,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 - 김효민 : [티스토리 블로그](https://baejjang.tistory.com/5)
 - 원동균 : [티스토리 블로그](https://tristy.tistory.com/44)
 - 이나영 :
-- 장희진 : 
+- 장희진 :  [깃허브 블로그](https://heejin99.github.io/preonboarding/Pre-Onboarding-%EA%B8%B0%EC%97%85%EA%B3%BC%EC%A0%9C-%EB%A7%88%ED%94%BC%EC%95%84-%EC%BB%B4%ED%8D%BC%EB%8B%88/)
 - 조재복 : 
 
 <br/>
