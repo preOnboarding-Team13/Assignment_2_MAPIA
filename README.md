@@ -1,4 +1,4 @@
-# 🔥 Assignment_MAIA(with NestJS)
+# 🔥 Assignment_MAPIA(with NestJS)
 
 🎼 wanted x wecode 프리온보딩 백엔드 코스 - [Assignment 2] 마피아컴퍼니
 
@@ -439,7 +439,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 ## 🍭 TIL 블로그 주소
 
 - 김바다 : 
-- 김효민 :
+- 김효민 : [티스토리 블로그](https://baejjang.tistory.com/5)
 - 원동균 : [티스토리 블로그](https://tristy.tistory.com/44)
 - 이나영 :
 - 장희진 : 
