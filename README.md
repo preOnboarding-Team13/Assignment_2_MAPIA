@@ -439,7 +439,7 @@ e2e 테스트로 각 도메인에 대한 유효성 검사 테스트 코드를 �
 
 ## 🍭 TIL 블로그 주소
 
-- 김바다 : 
+- 김바다 : [티스토리 블로그](https://bba-dda.tistory.com/107)
 - 김효민 : [티스토리 블로그](https://baejjang.tistory.com/5)
 - 원동균 : [티스토리 블로그](https://tristy.tistory.com/44)
 - 이나영 :
